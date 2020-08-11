@@ -1,3 +1,7 @@
+.banner{
+    height: 448px;
+}
+
 .banner_contents{
     margin-left: 30px;
     padding-top: 140px;
@@ -11,12 +15,12 @@
 }
 
 .banner__description{
-    /* width: 50vw; */
+    width: 80%;
     padding-top: 1rem;
     line-height: 1.3;
     font-size: .8rem;
-    max-width: 50vw;
     height: 80px;
+    overflow-y: hidden;
 }
 
 .banner__buttons{
@@ -61,15 +65,8 @@
 }
 
 @media screen and (max-width: 680px){
-    .banner_contents{
-        padding-top: 50px !important;
-    }
-
     .banner__title{
         font-size: 30px;
     }
 
-    .banner__description{
-        display: none;
-    }
 }

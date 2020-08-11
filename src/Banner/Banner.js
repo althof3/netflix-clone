@@ -8,9 +8,13 @@ function Banner() {
 
     const [movie, setMovies] = useState([])
 
+    const tranck = (str) => {
+        return (str.length > 150 ? str.substring(0,149)+'...' : str)
+    }
+
     useEffect(() => {
         async function fetch() {
-            const request = await axios.get(requests[0].link) //get Netflix original link
+            const request = await axios.get(requests[Math.floor(Math.random()*(requests.length))].link) //get Netflix original link
             setMovies(
                 request.data.results[Math.floor(Math.random()*(request.data.results.length))]
             )
@@ -26,7 +30,6 @@ function Banner() {
                     "https://image.tmdb.org/t/p/original/${movie.backdrop_path}"
                 )`,
                 backgroundPosition: 'center top',
-                height: '80vw',
                 maxHeight: '75vh',
                 backdropFilter: 'blur(5px)',
                 color: 'white'
@@ -40,7 +43,7 @@ function Banner() {
                 </div>
                 <div className='banner__description'>
                     {/* {(movie.overview.length > 150) ? movie.overview.substring(0, 149) : movie.overview} */}
-                    {movie.overview}
+                    {tranck(String(movie.overview))}
                 </div>
                 <div className='banner--fadeBottom' />
             </div>
